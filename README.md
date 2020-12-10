@@ -37,20 +37,20 @@ services:
       - name: s2
         type: build
 tests:
-  s1-test:
+  s1-test: #TODO can move under respective service in services section
     repo: 'https://github.com/app1/app1-tests'
     path: s1-test1/
-    serviceDependencies:
+    serviceDeployDependencies:
       - s1
   s2-test:
     repo: 'https://github.com/app1/app1-tests'
     path: s2-test1/
-    serviceDependencies:
+    serviceDeployDependencies:
       - s2
   smokeTest:
     repo: 'https://github.com/app1/app1-tests'
     path: smoketests/
-    serviceDependencies:
+    serviceDeployDependencies: #TODO: some keyword to represent all services or entire application
       - s1
       - s2
       - s3
@@ -61,7 +61,7 @@ tests:
   performanceTest:
     repo: 'https://github.com/app1/app1-tests'
     path: performanceTests/
-    serviceDependencies:
+    serviceDeployDependencies:
       - s1
       - s2
       - s3
