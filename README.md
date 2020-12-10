@@ -11,7 +11,7 @@ services:
     path: ./                    # if multiple services share same repo
     dependencies:
       - name: s2
-        type: build
+        type: build             # `optional` default is deploy
       - name: s3
         type: deploy
   - name: s2
@@ -44,17 +44,17 @@ tests:
   s1-test: #TODO can move under respective service in services section
     repo: 'https://github.com/app1/app1-tests'
     path: s1-test1/
-    serviceDeployDependencies:
+    dependencies:
       - s1
   s2-test:
     repo: 'https://github.com/app1/app1-tests'
     path: s2-test1/
-    serviceDeployDependencies:
+    dependencies:
       - s2
   smokeTest:
     repo: 'https://github.com/app1/app1-tests'
     path: smoketests/
-    serviceDeployDependencies: #TODO: some keyword to represent all services or entire application
+    dependencies: #TODO: some keyword to represent all services or entire application
       - s1
       - s2
       - s3
@@ -65,7 +65,7 @@ tests:
   performanceTest:
     repo: 'https://github.com/app1/app1-tests'
     path: performanceTests/
-    serviceDeployDependencies:
+    dependencies:
       - s1
       - s2
       - s3
