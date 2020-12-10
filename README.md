@@ -4,7 +4,7 @@ topology yaml
 services:
   - name: s1
     repo: 'https://github.com/app1/s1'
-    path: ./
+    path: ./                    # if multiple services share same repo
     dependencies:
       - name: s2
         type: build
