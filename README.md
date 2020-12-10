@@ -10,10 +10,8 @@ services:
     repo: 'https://github.com/app1/s1'
     path: ./                    # if multiple services share same repo
     dependencies:
-      - name: s2
-        type: build             # `optional` default is deploy
-      - name: s3
-        type: deploy
+      - s2!                     # `!` indicates build + deploy dependency and no `!` indicates only deploy dependency
+      - s3                
   - name: s2
     repo: 'https://github.com/app1/s2'
     path: ./
@@ -21,7 +19,7 @@ services:
   - name: s3
     repo: 'https://github.com/app1/s3'
     dependencies:
-      - name: s2
+      - s2
         type: build
   - name: s4
     repo: 'https://github.com/app1/s4'
