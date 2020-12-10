@@ -1,7 +1,7 @@
 services:
   - name: s1
     repo: 'https://github.com/app1/s1'
-    path: ./
+    path: ./   # incase of monorepo
     dependencies:
       - name: s2
         type: build
