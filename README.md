@@ -1,5 +1,8 @@
 # topology
 topology yaml
+[topology](topology.jpg)
+
+
 ```yaml
 services:
   - name: s1
