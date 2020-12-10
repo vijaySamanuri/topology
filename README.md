@@ -1,6 +1,7 @@
 # topology
 topology yaml
-[topology](topology.jpg)
+
+![topology](topology.jpg)
 
 
 ```yaml
