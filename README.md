@@ -26,7 +26,7 @@ services:
       - s2!
   - name: s5
     repo: 'https://github.com/app1/s4'
-    path: <path-to-service>
+    path: ./
     dependencies:
       - s6!
       - s3!
