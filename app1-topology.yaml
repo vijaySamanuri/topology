@@ -1,7 +1,7 @@
 services:
   - name: s1
     repo: 'https://github.com/app1/s1'
-    path: ./                             # incase of monorepo
+    path: ./                             # path to service module/subdirectory incase of monorepo
     dependencies:
       - s2!                              # `!` indicates build + deploy dependency and no `!` indicates only deploy dependency
       - s3
@@ -19,7 +19,7 @@ services:
       - s2!
   - name: s5
     repo: 'https://github.com/app1/s4'
-    path: <path-to-service>
+    path: ./                                
     dependencies:
       - s6!
       - s3!
