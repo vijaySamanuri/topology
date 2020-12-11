@@ -8,10 +8,10 @@ topology yaml
 services:
   - name: s1
     repo: 'https://github.com/app1/s1'
-    path: ./                    # if multiple services share same repo
+    path: ./                             # incase of monorepo
     dependencies:
-      - s2!                     # `!` indicates build + deploy dependency and no `!` indicates only deploy dependency
-      - s3                
+      - s2!                              # `!` indicates build + deploy dependency and no `!` indicates only deploy dependency
+      - s3
   - name: s2
     repo: 'https://github.com/app1/s2'
     path: ./
@@ -19,30 +19,25 @@ services:
   - name: s3
     repo: 'https://github.com/app1/s3'
     dependencies:
-      - s2
-        type: build
+      - s2!
   - name: s4
     repo: 'https://github.com/app1/s4'
     dependencies:
-      - name: s3
-        type: build
+      - s2!
   - name: s5
     repo: 'https://github.com/app1/s4'
     path: <path-to-service>
     dependencies:
-      - name: s6
-        type: build
-      - name: s3
-        type: build
+      - s6!
+      - s3!
   - name: s6
     dependencies:
-      - name: s2
-        type: build
+      - s2!
 tests:
   s1-test: #TODO can move under respective service in services section
     repo: 'https://github.com/app1/app1-tests'
     path: s1-test1/
-    dependencies:
+    dependencies:            #`dependencies` indicate service deployment dependencies i.e this test would get triggered only after `s1` is successfully deployed and ready to accept traffic
       - s1
   s2-test:
     repo: 'https://github.com/app1/app1-tests'
