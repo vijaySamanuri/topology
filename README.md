@@ -69,4 +69,4 @@ tests:
 ```
 
 
-![featurebranch-orchestrator](featurebranch-orchestrator.jpg)
+![featurebranch-orchestrator](feature-branch-orchestrator.jpg)
